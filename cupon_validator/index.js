@@ -1,5 +1,7 @@
 const express = require("express");
-const dayjs = require('dayjs');
+const dayjs = require("dayjs");
+const path = require("path");
+const hbs = require("hbs");
 
 const app = express();
 const PORT = 3001;
@@ -15,35 +17,63 @@ const cupones = [
   { codigo: "VIP100", descuento: 30, expiracion: "2027-01-01", minimo: 50000 },
 ];
 
-app.get("/", (req, res) => {
-  res.send("Holitas");
+app.set("view engine", "hbs"); // -> le decimos que vamos a usar handlebars
+const viewsPath = path.join(__dirname, "src/views");
+app.set("views", viewsPath);
+const partialsPath = path.join(viewsPath, "templates/partials");
+hbs.registerPartials(partialsPath);
+
+const publicPath = path.join(__dirname, "public");
+app.use(express.static(publicPath));
+
+app.get("/cuponera", (req, res) => {
+  res.render("cuponera_bonita", {
+    titulo: "Cuponera",
+    cupones,
+  });
 });
 
-app.get('/api/validar-cupon', (req, res) => {
-    const { codigo, totalcompra = 0 } = req.query // cliente envía info -> /validar-cupon?codigo=VERANO2026&totalcompra=40000
-    
-    const cuponEncontrado = cupones.find((cupon) => cupon.codigo === codigo)
+app.get("/", (req, res) => {
+  res.render("home", {
+    titulo: "home",
+  });
+});
 
-    if(!cuponEncontrado) {
-        return res.status(404).send("Cupón no encontrado")
-    }
+app.get("/api/validar-cupon", (req, res) => {
+  const { codigo, totalcompra = 0 } = req.query; // cliente envía info -> /validar-cupon?codigo=VERANO2026&totalcompra=40000
 
-    const expirationDate = dayjs(cuponEncontrado.expiracion)
-    const hoy = dayjs()
+  const cuponEncontrado = cupones.find((cupon) => cupon.codigo === codigo);
 
-    if(expirationDate.isBefore(hoy)) {
-        return res.status(498).send("Está caducado, no sea basura")
-    }
+  if (!cuponEncontrado) {
+    return res.status(404).json({ valid: false, reason: "No existe" });
+  }
 
-    if(totalcompra < cuponEncontrado.minimo) {
-        return res.status(422).send(`Necesitas tener un mínimo de: ${cuponEncontrado.minimo}`)
-    }
+  const expirationDate = dayjs(cuponEncontrado.expiracion);
+  const hoy = dayjs();
 
-    const totDesct = totalcompra * (cuponEncontrado.descuento/100)
-    const totalConDescto = totalcompra - totDesct
+  if (expirationDate.isBefore(hoy)) {
+    return res
+      .status(498)
+      .json({ valid: false, reason: "Está caducado, no sea basura" });
+  }
 
-    res.send(`Tu código de cupón ${cuponEncontrado.codigo} es válido. tu descuento es de ${cuponEncontrado.descuento}%  quedando tu compra en un total de: ${totalConDescto}`)
-})
+  if (totalcompra < cuponEncontrado.minimo) {
+    return res
+      .status(422)
+      .json({
+        valid: false,
+        reason: `Necesitas tener un mínimo de: ${cuponEncontrado.minimo}`,
+      });
+  }
+
+  const totDesct = totalcompra * (cuponEncontrado.descuento / 100);
+  const totalConDescto = totalcompra - totDesct;
+
+  res.json({
+    valid: true,
+    reason: `Tu código de cupón ${cuponEncontrado.codigo} es válido. tu descuento es de ${cuponEncontrado.descuento}%  quedando tu compra en un total de: ${totalConDescto}`,
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on: http://localhost:${PORT}`);

@@ -11,11 +11,15 @@
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.25.0",
+  "nodemonConfig": {
+    "ext": "js,mjs,cjs,json,hbs"
+  },
   "devDependencies": {
     "nodemon": "^3.1.11"
   },
   "dependencies": {
     "dayjs": "^1.11.19",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "hbs": "^4.2.0"
   }
 }

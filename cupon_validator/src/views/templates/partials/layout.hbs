@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/vendors/bootstrap/css/bootstrap.min.css" />
+    <title>{{titulo}}</title>
+  </head>
+  <body class="min-vh-100 d-flex flex-column justify-content-between">
+    {{> header brand="Peka"}}
+        <main class="container flex-grow-1">
+            {{> @partial-block}}
+        </main>
+    {{> footer }}
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+<div id="cupon-{{this.codigo}}" class="card cupon" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{this.codigo}}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">descuento:
+      {{this.descuento}}%</h6>
+    <p class="card-text">Este cupón necesita una compa mínima de
+      {{this.minimo}}</p>
+      <a href="/api/validar-cupon?codigo={{this.codigo}}&totalcompra=20000">Valida tu cupón</a>
+  </div>
+</div>
