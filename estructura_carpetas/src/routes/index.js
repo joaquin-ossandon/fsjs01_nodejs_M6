@@ -3,7 +3,7 @@ const router = express.Router()
 const gamesRoutes = require("./videogames.route")
 const categoriesRoutes = require("./categories.route")
 
-router.use("/", gamesRoutes)
-router.use("/", categoriesRoutes)
+router.use("/games", gamesRoutes) // endpoint: /api/games
+router.use("/categories", categoriesRoutes) // endpoint: /api/categories
 
 module.exports = router

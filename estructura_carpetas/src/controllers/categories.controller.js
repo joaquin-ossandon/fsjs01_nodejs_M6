@@ -1,8 +1,8 @@
 const videogames = require("../assets/videojuegos");
 
-const generos = new Set(videogames.map((videogame) => videogame.genero));
 
 const allCategories = (req, res) => {
+  const generos = new Set(videogames.map((videogame) => videogame.genero));
   res.json(Array.from(generos));
 };
 
