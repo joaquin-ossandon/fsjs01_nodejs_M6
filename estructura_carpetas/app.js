@@ -1,14 +1,14 @@
 const express = require("express")
 const app = express()
-const PORT = 3002
+const PORT = 3001
 
 const routes = require("./src/routes")
 const { logger } = require("./src/middlewares/logger")
-const { fileWriter } = require("./src/utils/fileWriter")
+const { logWriter } = require("./src/utils/fileWriter")
 // const morgan = require("morgan")
 
 // app.use(morgan("short"))
-app.use(logger(fileWriter, process.cwd(), "logs.txt"))
+app.use(logger(logWriter, process.cwd(), "logs.txt"))
 app.use("/api", routes)
 
 app.listen(PORT, () => {

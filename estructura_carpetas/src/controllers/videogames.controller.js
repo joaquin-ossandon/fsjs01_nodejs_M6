@@ -1,5 +1,5 @@
 const { fileToJson } = require("../utils/fileReader");
-const { fileWriter } = require("../utils/fileWriter");
+const { fileWriter, fileWriterOverride } = require("../utils/fileWriter");
 
 const allVideoGames = async (req, res) => {
   const videojuegos = await fileToJson("src/assets/videojuegos.json");
@@ -35,8 +35,6 @@ const createGame = async (req, res) => {
   };
 
   videojuegos.push(nuevoJuego);
-
-  console.log(videojuegos)
 
   await fileWriter({dirPath: "src/assets", fileName: "videojuegos.json", data: JSON.stringify(videojuegos, "", 2)})
 
