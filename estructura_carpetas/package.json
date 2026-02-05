@@ -12,6 +12,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.25.0",
   "dependencies": {
+    "dayjs": "^1.11.19",
     "express": "^5.2.1"
   },
   "devDependencies": {

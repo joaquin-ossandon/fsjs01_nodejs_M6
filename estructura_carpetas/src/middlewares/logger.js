@@ -1,13 +1,20 @@
-const logger = (req, res, next)=> {
-    const start = Date.now(); // marca de tiempo
+const path = require("node:path");
+const dayjs = require("dayjs");
 
-    res.on("finish", () => {
-        const end = Date.now()
-        const duration = end - start;
-        console.log(`${req.method} - ${req.originalUrl} - ${duration} ms - ${res.statusCode}`)
-    })
+const logger = (cb, dirPath, fileName) => async (req, res, next) => {
+  const start = Date.now(); // marca de tiempo
 
-    next()
-}
+  res.on("finish", async () => {
+    const end = Date.now();
+    const duration = end - start;
+    const date = dayjs(end).format('ddd D MMM YYYY HH:mm:ss')
+    const log = `${date}, ${req.method}, ${res.statusCode}, ${req.originalUrl}, ${duration} ms`;
 
-module.exports = { logger }
+    cb({ dirPath, fileName, data: log });
+    console.log(log);
+  });
+
+  next();
+};
+
+module.exports = { logger };

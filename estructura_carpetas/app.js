@@ -4,10 +4,11 @@ const PORT = 3002
 
 const routes = require("./src/routes")
 const { logger } = require("./src/middlewares/logger")
+const { fileWriter } = require("./src/utils/fileWriter")
 // const morgan = require("morgan")
 
-// app.use(morgan("tiny"))
-app.use(logger)
+// app.use(morgan("short"))
+app.use(logger(fileWriter, process.cwd(), "logs.txt"))
 app.use("/api", routes)
 
 app.listen(PORT, () => {
