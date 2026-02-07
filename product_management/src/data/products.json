@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Cloro ropa blanca",
+    "description": "Un cloro para ropa blanca",
+    "price": 3500,
+    "stock": 30
+  },
+  {
+    "id": 2,
+    "name": "Detergente líquido",
+    "description": "Detergente concentrado para 30 lavados",
+    "price": 8990,
+    "stock": 45
+  },
+  {
+    "id": 3,
+    "name": "Suavizante de telas",
+    "description": "Aroma primavera, botella de 1 litro",
+    "price": 4200,
+    "stock": 25
+  },
+  {
+    "id": 4,
+    "name": "Limpiavidrios",
+    "description": "Líquido con atomizador para superficies brillantes",
+    "price": 2800,
+    "stock": 50
+  },
+  {
+    "id": 5,
+    "name": "Desinfectante multiuso",
+    "description": "Elimina el 99.9% de bacterias, aroma limón",
+    "price": 3100,
+    "stock": 40
+  },
+  {
+    "id": "87a6e130-3a12-4e4e-99f9-29547d20f7eb",
+    "name": "Vitamina D",
+    "description": "Una vitamina para que no estés deprimido, sal a tomar solcito",
+    "price": "900000",
+    "stock": "300"
+  }
+]

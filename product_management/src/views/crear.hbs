@@ -1,0 +1,62 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body
+    class="min-vh-100 d-flex flex-column justify-content-center align-items-center"
+  >
+    <div
+      class="border border-1 border-primary p-5 rounded-4 shadow"
+      style="width: 500px"
+    >
+      <h1 class="mb-4">Crear un producto</h1>
+      <form action="/api/productos/crear" method="POST">
+        <div class="mb-3">
+          <label for="product-name" class="form-label">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="product-name"
+            name="name"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="product-description" class="form-label">Descripción</label>
+          <input
+            type="text"
+            class="form-control"
+            id="product-description"
+            name="description"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="product-price" class="form-label">Precio</label>
+          <input
+            type="number"
+            class="form-control"
+            id="product-price"
+            name="price"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="product-stock" class="form-label">Stock</label>
+          <input
+            type="number"
+            class="form-control"
+            id="product-stock"
+            name="stock"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Crear producto</button>
+      </form>
+    </div>
+  </body>
+</html>
