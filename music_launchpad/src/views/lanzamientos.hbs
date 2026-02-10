@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="album py-5 bg-body-tertiary">
+      <div class="container">
+        <div class="d-flex justify-content-end mb-4">
+            <a href="/nuevo-lanzamiento" class="btn btn-primary btn-lg">+ Nuevo lanzamiento</a>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          {{#each discos}}
+            <div class="col">
+              <div class="card shadow-sm">
+                <img src="https://dummyimage.com/350x350/000/fff&text={{this.titulo}}" alt="">
+                <div class="card-body">
+                  <p class="card-text fw-bold">{{this.titulo}} - {{this.artista}}</p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <small class="text-body-secondary">{{this.genero}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body
+    class="d-flex justify-content-center align-items-center min-vh-100 bg-body-secondary"
+  >
+    <form
+      class="p-5 border border-1 border-primary shadow rounded-5 bg-light"
+      action="/api/nuevo-lanzamiento"
+      method="post"
+    >
+      <label for="artista" class="form-label">
+        <h1>Nuevo lanzamiento</h1>
+      </label>
+      <div class="mb-3">
+        <label for="artista" class="form-label">Artista</label>
+        <input
+          type="text"
+          class="form-control"
+          id="artista"
+          name="artista"
+          placeholder="Dua Lipa"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="titulo" class="form-label">Titulo album</label>
+        <input
+          type="text"
+          class="form-control"
+          id="titulo"
+          name="titulo"
+          placeholder="Que me lleve el diaulo"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="genero" class="form-label">Genero</label>
+        <input
+          type="text"
+          class="form-control"
+          id="genero"
+          name="genero"
+          placeholder="metal"
+        />
+      </div>
+      <button class="btn btn-primary btn-lg w-100">Lanzar</button>
+    </form>
+  </body>
+</html>

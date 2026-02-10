@@ -1,0 +1,19 @@
+{
+  "discos": [
+    {
+      "artista": "Dua Lipa",
+      "titulo": "Future Nostalgia",
+      "genero": "Pop"
+    },
+    {
+      "artista": "Gorillaz",
+      "genero": "Alternativo",
+      "titulo": "Plastic beach"
+    },
+    {
+      "artista": "Dua lipa",
+      "genero": "Metal",
+      "titulo": "Que me lleve el daulo"
+    }
+  ]
+}
