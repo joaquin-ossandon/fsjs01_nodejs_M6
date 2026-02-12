@@ -1,6 +1,6 @@
 const fs = require("node:fs/promises");
 
-const readFileAsJson = async () => {
+const readFileAsJson = async (filepath) => {
   const fileData = await fs.readFile(filepath, { encoding: "utf-8" });
   const data = JSON.parse(fileData);
 
