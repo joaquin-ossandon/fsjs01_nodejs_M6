@@ -1,11 +1,9 @@
 <div class="col">
   <div class="card shadow-sm">
-    <img
-      src="https://dummyimage.com/350x350/000/fff&text={{lanzamiento.titulo}}"
-      alt=""
-    />
+    <img src="https://dummyimage.com/350x350/000/fff&text={{lanzamiento.titulo}}" alt="" />
     <div class="card-body">
-      <p class="card-text fw-bold">{{lanzamiento.titulo}} - {{lanzamiento.artista}}</p>
+      <a class="card-link" href="/lanzamientos/artista/{{lanzamiento.artista}}">{{lanzamiento.artista}}</a>
+      <p>{{lanzamiento.titulo}}</p>
       <div class="d-flex justify-content-between align-items-center">
         <small class="text-body-secondary">{{lanzamiento.genero}}</small>
       </div>
