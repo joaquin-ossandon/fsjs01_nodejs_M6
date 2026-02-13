@@ -1,14 +1,14 @@
 {{#> main title="Lanzamientos - Music example" }}
-    <div class="album py-5 bg-body-tertiary">
-      <div class="container">
-        <div class="d-flex justify-content-end mb-4">
-            <a href="/nuevo-lanzamiento" class="btn btn-primary btn-lg">+ Nuevo lanzamiento</a>
-        </div>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          {{#each discos}}
-            {{> cardLanzamiento lanzamiento=this }}
-          {{/each}}
-        </div>
-      </div>
+<div class="album py-5 bg-body-tertiary">
+  <div class="container">
+    <div class="d-flex justify-content-end mb-4">
+      <a href="/nuevo-lanzamiento" class="btn btn-primary btn-lg">+ Nuevo lanzamiento</a>
     </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      {{#each discos}}
+      {{> cardLanzamiento lanzamiento=this }}
+      {{/each}}
+    </div>
+  </div>
+</div>
 {{/main}}

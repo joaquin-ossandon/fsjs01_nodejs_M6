@@ -19,6 +19,16 @@
       "artista": "sdasda",
       "genero": "reewrwe",
       "titulo": "dasdas"
+    },
+    {
+      "artista": "dua lipa",
+      "titulo": "Dua Lipa",
+      "genero": "Pop"
+    },
+    {
+      "artista": "Gorillaz",
+      "genero": "Trip-Hop",
+      "titulo": "Gorillaz"
     }
   ]
 }
