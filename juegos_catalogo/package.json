@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "nodemon app.js"
   },
+  "nodemonConfig": {
+    "ext": "js,hbs,json"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

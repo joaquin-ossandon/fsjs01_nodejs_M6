@@ -1,11 +1,18 @@
 const { fileAsJson } = require("../utils/readFile");
+const { randomUUID } = require("node:crypto");
+const { writeFileFromJson } = require("../utils/writeFile");
 
 const landingPage = async (req, res) => {
   const games = await fileAsJson("src/models/games.json");
 
-  res.render("index", { games: games.catalog, otros: [{title: "Regalo de 15 pesos"}, {title: "Regalo de 35 pesos"}] });
+  res.render("index", { games: games.catalog });
 };
 
-module.exports = { 
-    landingPage, 
+const createGameForm = async (req, res) => {
+  res.render("createGameForm");
+};
+
+module.exports = {
+  landingPage,
+  createGameForm,
 };

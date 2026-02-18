@@ -1,0 +1,61 @@
+{{#> mainLayout }}
+      <form action="/api/games" method="POST">
+        <div class="mb-3">
+          <label for="title" class="form-label">Titulo</label>
+          <input type="text" class="form-control" id="title" name="title" />
+        </div>
+        <div class="mb-3">
+          <label for="platform" class="form-label">Plataforma</label>
+          <input
+            type="text"
+            class="form-control"
+            id="platform"
+            name="platform"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="genre" class="form-label">Genero</label>
+          <input type="text" class="form-control" id="genre" name="genre" />
+        </div>
+        <div class="mb-3">
+          <label for="release_date" class="form-label">Fecha de lanzamiento</label>
+          <input
+            type="date"
+            class="form-control"
+            id="release_date"
+            name="release_date"
+          />
+        </div>
+        <div class="mb-3 form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="multiplayer_support"
+            name="multiplayer_support"
+          />
+          <label
+            class="form-check-label"
+            for="multiplayer_support"
+          >Multijugador</label>
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">Precio</label>
+          <input type="text" class="form-control" id="price" name="price" />
+        </div>
+        <div class="mb-3">
+          <label for="stock" class="form-label">Stock</label>
+          <input type="text" class="form-control" id="stock" name="stock" />
+        </div>
+        <div class="mb-3">
+          <label for="estimated_playtime_hours" class="form-label">Horas de
+            juego estimadas</label>
+          <input
+            type="text"
+            class="form-control"
+            id="estimated_playtime_hours"
+            name="estimated_playtime_hours"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+{{/mainLayout}}

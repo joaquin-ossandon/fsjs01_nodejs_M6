@@ -1,5 +1,6 @@
 const { fileAsJson } = require("../utils/readFile");
 const { writeFileFromJson } = require("../utils/writeFile");
+const { randomUUID } = require("node:crypto");
 
 const getAllGames = async (req, res) => {
   const games = await fileAsJson("src/models/games.json");
@@ -8,9 +9,11 @@ const getAllGames = async (req, res) => {
 
 const createGame = async (req, res) => {
   const newGame = req.body;
-
+  newGame.multiplayer_support = newGame.multiplayer_support ? true : false;
+  
+  const id = randomUUID();
   const games = await fileAsJson("src/models/games.json");
-  games.catalog.push(newGame);
+  games.catalog.push({ id, ...newGame });
 
   await writeFileFromJson("src/models/games.json", games);
 

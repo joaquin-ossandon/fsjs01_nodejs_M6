@@ -1,1 +1,20 @@
-<h3>{{key}} {{this.title}}</h3>
+<div class="card">
+  <img
+    src="https://dummyimage.com/600x400/000/fff&text={{this.title}}"
+    class="card-img-top"
+    alt="Palabra Holandas en diseño decorativo"
+  />
+  <div class="btn btn-{{colorByStock this.stock}} position-absolute top-50 end-0">
+    Stock
+    <span class="badge text-bg-secondary">{{this.stock}}</span>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{this.title}}</h5>
+    <p class="card-text">{{this.platform}}</p>
+    <a href="#" class="btn btn-primary">{{formatPrice this.price}}</a>
+  </div>
+</div>
+
+{{! Si el stock es mayor a 10 entonces que se pinte verde }}
+{{! Si el stock es mayor a 1 entonces que se pinte amarillo }}
+{{! Si el stock es menor o igual a 1 entonces que se pinte rojo }}

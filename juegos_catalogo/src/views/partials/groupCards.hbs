@@ -1,5 +1,9 @@
 <h2>{{titulo}}</h2>
 <hr>
-{{#each items}}
-    {{> card }}
-{{/each}}
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {{#each items}}
+        <div class="col">
+            {{> card }}
+        </div>
+    {{/each}}    
+</div>
